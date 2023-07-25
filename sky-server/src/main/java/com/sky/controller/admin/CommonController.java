@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -50,9 +51,13 @@ public class CommonController {
         if(!dir.exists()){
             dir.mkdirs();
         }
+        LocalDate currentDate = LocalDate.now();
         try {
             file.transferTo(new File(basePath+fileName));
-            return Result.success(fileName);
+//            return Result.success(fileName);
+            return Result.success("https://free.wzznft.com/i/"
+                    +currentDate.getYear()+"/"+String.format("%02d", currentDate.getMonthValue())+"/"+currentDate.getDayOfMonth()
+                    +"/"+originalFilename); //用薄荷图床做
         } catch (IOException e) {
             log.error("文件上传失败:{}",e);
         }
