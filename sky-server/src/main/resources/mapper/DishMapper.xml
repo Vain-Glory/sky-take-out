@@ -11,6 +11,19 @@
                 #{updateUser}, #{status})
     </insert>
 
+    <update id="update">
+        update dish
+        <set>
+            <if test="name!=null and name!='' ">name = #{name},</if>
+            <if test="categoryId!=null ">category_id = #{categoryId},</if>
+            <if test="price!=null ">price = #{price},</if>
+            <if test="image!=null and image!='' ">image = #{image},</if>
+            <if test="description!=null ">description = #{description},</if>
+            <if test="status!=null ">status = #{status},</if>
+        </set>
+        where id = #{id}
+    </update>
+
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
         SELECT d.* ,c.name as categoryName from dish d LEFT JOIN category c ON d.category_id=c.id 
         <where>
