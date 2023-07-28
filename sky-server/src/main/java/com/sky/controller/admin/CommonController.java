@@ -55,7 +55,7 @@ public class CommonController {
         try {
             file.transferTo(new File(basePath+fileName));
 //            return Result.success(fileName);
-            return Result.success("https://s1.bhimgs.com/i/"
+            return Result.success("https://free.wzznft.com/i/"
                     +currentDate.getYear()+"/"+String.format("%02d", currentDate.getMonthValue())+"/"+currentDate.getDayOfMonth()
                     +"/"+originalFilename); //用薄荷图床做
         } catch (IOException e) {
