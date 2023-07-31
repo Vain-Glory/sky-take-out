@@ -11,7 +11,7 @@ import java.util.List;
 public interface ShoppingCartMapper {
     /**
      * 动态条件查询
-     * @return
+     * @param shoppingCart
      */
     List<ShoppingCart> list(ShoppingCart shoppingCart);
 
